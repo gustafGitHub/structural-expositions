@@ -8,8 +8,7 @@ The aim is not popularization in the usual sense, but structural clarification: 
 
 ## Files
 
-- [PDF](rayleigh_scattering_maxwell.pdf)
-- [LaTeX source](../rayleigh_scattering_maxwell.tex)
+- [PDF](files/rayleigh_scattering_maxwell.pdf)
 - License: [CC BY 4.0](../LICENSE.md)
 
 ## Suggested citation

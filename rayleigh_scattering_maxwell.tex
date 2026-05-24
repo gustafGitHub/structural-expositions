@@ -1,8 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 
-% Version 0.8
+% Version 1.0
 
 \usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
 \usepackage{physics}
 \usepackage{hyperref}
 \usepackage{geometry}
@@ -43,7 +44,10 @@ dipole moment, and the observed intensity is obtained from the electromagnetic
 stress-energy structure, which is quadratic in the field. For harmonic
 radiation this gives a scattered field amplitude proportional to \(\omega^2\),
 and hence an intensity proportional to \(\omega^4\), or equivalently to
-\(\lambda^{-4}\).
+\(\lambda^{-4}\). A brief quantum interpretation is also included: Rayleigh
+scattering may be represented as a second-order process involving virtual
+molecular excitations, but it should not be confused with real absorption
+followed by de-excitation.
 
 The derivation is then recast in spacetime algebra, where the electromagnetic
 field is represented as a bivector \(F\), the electric and magnetic fields are
@@ -187,6 +191,19 @@ sequence of separate events. In the classical description, the incident field
 drives a bound charge distribution, and the driven charge distribution
 radiates.
 
+There is, however, a useful quantum qualification. Rayleigh scattering should
+not be understood as ordinary absorption followed by emission through a real
+excited molecular state. Far from resonance, the molecule responds
+elastically: it returns to its initial state and the outgoing photon has the
+same frequency as the incoming photon, apart from negligible recoil effects.
+In quantum language, the process may be described as a second-order process in
+which the incident photon couples to virtual molecular excitations before an
+outgoing photon is emitted. The virtual intermediate states contribute to the
+frequency-dependent polarizability of the molecule, but they are not real
+long-lived excitations. Thus the classical induced-dipole picture and the
+quantum virtual-transition picture are not competing explanations. They are
+different descriptions of the same off-resonant elastic response.
+
 \section{A Bound Electron Model}
 
 One can see the origin of the induced dipole more explicitly by modelling a
@@ -228,6 +245,27 @@ quantum effects. None of these complications changes the basic point needed
 for the Rayleigh law: far from resonance and for scatterers much smaller than
 the wavelength, the leading response is dipolar and linear in the incident
 field.
+
+In quantum theory, the same polarizability can be understood as encoding the
+coupling of the molecular ground state to excited states through the electric
+dipole operator. Schematically,
+
+\begin{equation}
+\alpha(\omega)
+\sim
+\sum_n
+\left(
+\frac{|\langle n|\mathbf{d}|0\rangle|^2}{E_n-E_0-\hbar\omega}
++
+\frac{|\langle n|\mathbf{d}|0\rangle|^2}{E_n-E_0+\hbar\omega}
+\right),
+\end{equation}
+
+with appropriate tensor indices and constants suppressed. This expression is
+not needed for the classical derivation below, but it clarifies the physical
+meaning of the off-resonant response. The molecule need not be truly excited
+in order to be polarizable. The possible excited states enter virtually,
+through the response function \(\alpha(\omega)\).
 
 \section{Radiation from an Oscillating Dipole}
 
@@ -818,6 +856,60 @@ reason for the red colour of the setting Sun is not refraction. It is the
 preferential Rayleigh scattering of shorter wavelengths out of the direct
 solar beam.
 
+
+\section{Solar Spectrum and the Distribution of Scattered Photons}
+
+A useful way to visualize the origin of the blue sky is to combine the solar
+spectrum with the Rayleigh weighting. If the incident radiation is approximated
+by a blackbody spectrum, then the number of incident photons per wavelength
+interval is proportional to
+
+\begin{equation}
+\frac{dN_{\mathrm{in}}}{d\lambda}
+\propto
+\frac{B_\lambda(T)}{hc/\lambda}
+=
+\frac{\lambda B_\lambda(T)}{hc},
+\end{equation}
+
+where \(B_\lambda(T)\) is the Planck distribution written per unit wavelength.
+Since the Rayleigh scattering cross section scales as
+
+\begin{equation}
+\sigma_{\mathrm{R}}(\lambda)\propto \lambda^{-4},
+\end{equation}
+
+the number of scattered photons per wavelength interval satisfies
+
+\begin{equation}
+\frac{dN_{\mathrm{sc}}}{d\lambda}
+\propto
+\sigma_{\mathrm{R}}(\lambda)\frac{dN_{\mathrm{in}}}{d\lambda}
+\propto
+\lambda^{-4}\frac{B_\lambda(T)}{hc/\lambda}
+=
+\lambda^{-3}B_\lambda(T).
+\end{equation}
+
+Figure~\ref{fig:solar_rayleigh} shows three normalized curves: the solar
+blackbody energy spectrum, the corresponding incident photon distribution, and
+the Rayleigh-weighted distribution of scattered photons. The last of these is
+shifted toward shorter visible wavelengths. The figure therefore makes
+graphically explicit what the analytic \(\lambda^{-4}\) law implies:
+Rayleigh scattering strongly biases the visible scattered light toward the blue
+end of the spectrum.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{rayleigh_scattering_solar_spectrum_figure.png}
+\caption{Normalized comparison between a solar blackbody energy spectrum, the
+corresponding incident photon distribution, and the Rayleigh-weighted
+distribution of scattered photons, all plotted as functions of wavelength. The
+scattered-photon curve is proportional to \(\lambda^{-4}\) times the incident
+photon distribution. The visible range is shaded for reference.}
+\label{fig:solar_rayleigh}
+\end{figure}
+
 \section{Discussion: Structural Clarification and Conceptual Seeing}
 
 This paper is not pedagogical by reducing the phenomenon to a simple image or
@@ -876,9 +968,10 @@ The blue colour of the sky is a visible consequence of Rayleigh scattering.
 But Rayleigh scattering itself is not a primitive fact. It follows from the
 interaction between an incident electromagnetic field and small polarizable
 molecules. In the Rayleigh regime, each molecule behaves as a driven electric
-dipole. The far radiation field of this dipole is proportional to
-\(\omega^2\), while the observed intensity is quadratic in the field. The
-result is
+dipole; in quantum language, this is the classical limit of an off-resonant
+elastic process mediated by virtual molecular excitations. The far radiation
+field of this dipole is proportional to \(\omega^2\), while the observed
+intensity is quadratic in the field. The result is
 
 \begin{equation}
 I_{\mathrm{sc}}
